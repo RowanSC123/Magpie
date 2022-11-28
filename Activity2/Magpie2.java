@@ -30,17 +30,46 @@ public class Magpie2
 	 */
 	public String getResponse(String statement)
 	{
+		statement = " " + statement + " "; //not the most elegant solution
 		String response = "";
-		if (statement.indexOf("no") >= 0)
+		String prefix = "";
+		String plural = "";
+		if (statement.indexOf(" Mr. ") >= 0){
+			prefix = "He";
+			plural = "s";
+		}
+		else if (statement.indexOf(" Mrs. ") >= 0
+				|| statement.indexOf(" Ms. ") >= 0){
+			prefix = "She";
+			plural = "s";
+		}
+		else{
+			prefix = "They";
+		}
+
+		if (statement.indexOf(" no ") >= 0)
 		{
 			response = "Why so negative?";
 		}
-		else if (statement.indexOf("mother") >= 0
-				|| statement.indexOf("father") >= 0
-				|| statement.indexOf("sister") >= 0
-				|| statement.indexOf("brother") >= 0)
+		else if (statement.indexOf(" mother ") >= 0
+				|| statement.indexOf(" father ") >= 0
+				|| statement.indexOf(" sister ") >= 0
+				|| statement.indexOf(" brother ") >= 0)
 		{
 			response = "Tell me more about your family.";
+		}
+		else if (statement.indexOf(" dog ") >= 0
+				|| statement.indexOf(" dogs ") >= 0
+				|| statement.indexOf(" cat ") >= 0
+				|| statement.indexOf(" cats ") >= 0)
+		{
+			response = "Tell me more about your pets.";
+		}
+		else if (statement.indexOf(" Mr. ") >= 0
+				|| statement.indexOf(" Mrs. ") >= 0
+				|| statement.indexOf(" Ms. ") >= 0
+				|| statement.indexOf(" Dr. ") >= 0){
+			response = prefix + " sound" + plural + " like a good teacher."; //not the most elegant solution
 		}
 		else
 		{
