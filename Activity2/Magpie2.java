@@ -71,6 +71,16 @@ public class Magpie2
 				|| statement.indexOf(" Dr. ") >= 0){
 			response = prefix + " sound" + plural + " like a good teacher."; //not the most elegant solution
 		}
+		else if (statement.indexOf(" game ") >= 0
+		        || statement.indexOf(" games ") >= 0){
+			response = "What games do you like to play?";
+		}
+		else if (statement.indexOf(" sorry ") >= 0){
+			response = "I accept your apology.";
+		}
+		else if (statement.trim().equals("")){
+			response = "Say something, please.";
+		}
 		else
 		{
 			response = getRandomResponse();
