@@ -30,7 +30,7 @@ public class Magpie2
 	 */
 	public String getResponse(String statement)
 	{
-		statement = " " + statement + " "; /*adds spaces to the ends of the string
+		statement = " " + statement + " "; /*adds spaces to the ends of the string.
 		This works to prevent accidentally responding to words within words,
 		such as with "meow" in "homeowner". Will not affect the trim() method.
 		The bad news is that we have to specify plurals individually now*/
