@@ -30,11 +30,16 @@ public class Magpie2
 	 */
 	public String getResponse(String statement)
 	{
-		statement = " " + statement + " "; //not the most elegant solution
+		statement = " " + statement + " "; /*adds spaces to the ends of the string
+		This works to prevent accidentally responding to words within words,
+		such as with "meow" in "homeowner". Will not affect the trim() method.
+		The bad news is that we have to specify plurals individually now*/
+
+		//the following if-else statements are to format responses with correct pronouns
 		String response = "";
 		String prefix = "";
 		String plural = "";
-		if (statement.indexOf(" Mr. ") >= 0){
+		if (statement.indexOf(" Mr. ") >= 0){ //statement.contains(" Mr. "); could have worked?
 			prefix = "He";
 			plural = "s";
 		}
@@ -47,6 +52,7 @@ public class Magpie2
 			prefix = "They";
 		}
 
+		//determines response from user keywords in priority order
 		if (statement.indexOf(" no ") >= 0)
 		{
 			response = "Why so negative?";
